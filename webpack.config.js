@@ -83,7 +83,7 @@ export default (_, args) => {
 
     // Entry points.
     entry: {
-      index: ['./src/index.scss', './src/index.ts'],
+      index: ['regenerator-runtime', './src/index.scss', './src/index.ts'],
     },
 
     // Output parameters.
@@ -126,10 +126,10 @@ export default (_, args) => {
           test: /\.tsx?$/,
           use: [
             {
-              loader: 'ts-loader',
+              loader: 'babel-loader',
               options: {
-                transpileOnly: true,
-              },
+                exclude: /node_modules/,
+              }
             },
           ],
         },
